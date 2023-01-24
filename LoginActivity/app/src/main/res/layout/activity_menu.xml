@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/MenuTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            android:text="QUIZ"/>
+
+        <ImageView
+            android:id="@+id/IVPrincipalMenu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_above="@+id/MenuTitle"
+            android:background="@color/blue"
+            />
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#BAB2B2"
+            android:layout_below="@+id/IVPrincipalMenu"
+            android:numColumns="2"
+            android:scrollbars="vertical">
+
+        </GridView>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
