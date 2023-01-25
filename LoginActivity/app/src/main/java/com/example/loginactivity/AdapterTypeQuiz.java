@@ -50,15 +50,15 @@ public class AdapterTypeQuiz extends ArrayAdapter {
         return layout;
     }
 
-    void dialogClick(View layout, int typeQuiz, String nameDistrict){
+    void dialogClick(View layout, int typeQuiz, String nameQuiz){
         ImageView img = (ImageView) layout.findViewById(R.id.districtIMG);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 AlertDialog.Builder builder = new AlertDialog.Builder(activity);
                 builder.setTitle("Commencer le quiz ?");
-                builder.setMessage("Quiz sur "+nameDistrict);
-                builder.setPositiveButton("Yes"
+                builder.setMessage("Quiz sur "+nameQuiz);
+                builder.setPositiveButton("OUI"
                         , new DialogInterface.OnClickListener(){
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
@@ -71,7 +71,7 @@ public class AdapterTypeQuiz extends ArrayAdapter {
 
                             }
                         });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener(){
+                builder.setNegativeButton("NON", new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int id) { dialog.dismiss(); }
                 });
                 AlertDialog dialog = builder.create();

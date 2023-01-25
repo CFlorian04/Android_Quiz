@@ -33,27 +33,23 @@ public class MenuActivity extends AppCompatActivity {
         User userInfo = (User) bundle.getSerializable("userInfo");
         user.setUser(userInfo);
 
-        TextView t = (TextView) findViewById(R.id.MenuTitle);
+        TextView t = findViewById(R.id.MenuTitle);
         t.setText(user.getInfo());
 
-        ImageView IVPrincipalMenu = (ImageView) findViewById(R.id.IVPrincipalMenu);
-        IVPrincipalMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setQuiz(0);
-            }
-        });
+//        ImageView IVPrincipalMenu = (ImageView) findViewById(R.id.IVPrincipalMenu);
+//        IVPrincipalMenu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                setQuiz(0);
+//            }
+//        });
 
-        this.gridView = (GridView)findViewById(R.id.gridView);
+        //Mise en place de la liste de Quiz
+        this.gridView = findViewById(R.id.ListQuiz);
         ArrayList<TypeQuiz> arrayQuiz = new ArrayList<>();
-
         setListTypeQuiz(arrayQuiz);
-
-        AdapterTypeQuiz adapter =
-                new AdapterTypeQuiz(MenuActivity.this,
-                        R.layout.quiz_item,
-                        arrayQuiz);
-        gridView.setAdapter(adapter);
+        AdapterTypeQuiz arrayQuizAdapter = new AdapterTypeQuiz(MenuActivity.this, R.layout.quiz_item, arrayQuiz);
+        gridView.setAdapter(arrayQuizAdapter);
     }
 
 
@@ -73,11 +69,10 @@ public class MenuActivity extends AppCompatActivity {
     private void setListTypeQuiz(ArrayList<TypeQuiz> arrayQuiz) {
         ArrayList<String> ListQuiz = new ArrayList<String>();
         Collections.addAll(ListQuiz,
-                "Animal","Technologie","Géographie","France","Développement","Histoire","Jeu-Vidéo");
+                "Aléatoire", "Animal", "Technologie", "Géographie", "France", "Développement", "Histoire", "Jeu-Vidéo");
 
-        for (int i = 0 ; i < ListQuiz.size(); i++)
-        {
-            arrayQuiz.add(new TypeQuiz( ListQuiz.get(i).toString(),i));
+        for (int i = 0; i < ListQuiz.size(); i++) {
+            arrayQuiz.add(new TypeQuiz(ListQuiz.get(i), i));
         }
 
     }
